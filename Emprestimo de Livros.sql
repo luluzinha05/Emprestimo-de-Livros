@@ -26,7 +26,7 @@ valor_emprestimo numeric,
 id_usuario int,
 foreign key (id_usuario) references usuario (id_usuario),
 id_livro int,
-foreign key (id_livro) references livro (id_livro) on delete no action
+foreign key (id_livro) references livro (id_livro) on delete set null
 );
 
 -- Popular tabelas:

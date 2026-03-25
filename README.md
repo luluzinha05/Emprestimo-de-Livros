@@ -1,6 +1,6 @@
 # Grupo 4
 
-> **Serretec Residência de Software · Sala 34 · Atividade de Banco de Dados**
+> **Serratec Residência de Software · Sala 34 · Atividade de Banco de Dados**
 
 ---
 
