@@ -1,3 +1,8 @@
+drop table autor 
+drop table emprestimo
+drop table livro 
+drop table usuario 
+
 --Criação tabelas modelo físico:
 create table autor(
 id_autor serial primary key,
@@ -58,17 +63,19 @@ insert into usuario (id_usuario, nome, email) values
 
 insert into emprestimo ( id_emprestimo,data_emprestimo,data_devolucao,
 valor_emprestimo, id_usuario,id_livro) values 
-(1, '2026-03-01', '2026-03-10', 5.00, 1, 8),
+(1, '2026-03-01', '2026-03-10', 5.00, 1, 1),
 (2, '2026-03-02', '2026-03-11', 6.50, 2, 9),
-(3, '2026-03-03', '2026-03-12', 4.00, 3, 10),
-(4, '2026-03-04', '2026-03-13', 7.00, 4, 11),
-(5, '2026-03-05', '2026-03-14', 5.50, 5, 12),
-(6, '2026-03-06', '2026-03-15', 6.00, 1, 13),
-(7, '2026-03-07', '2026-03-16', 4.50, 2, 14);
-
+(3, '2026-03-03', '2026-03-12', 4.00, 3, 2),
+(4, '2026-03-04', '2026-03-13', 7.00, 4, 5),
+(5, '2026-03-05', '2026-03-14', 5.50, 5, 4),
+(6, '2026-03-06', '2026-03-15', 6.00, 1, 8),
+(7, '2026-03-07', '2026-03-16', 4.50, 2, 6);
 
 -- 1) Retornar os livros emprestados.
 select * from emprestimo e 
+
+select e.id_emprestimo, l.titulo, e.data_emprestimo from livro l
+inner join emprestimo e on l.id_livro = e.id_livro
 
 -- 2) Retornar os livros que não foram emprestados.
 select l.titulo from livro l 
@@ -85,7 +92,10 @@ left join autor a on a.id_autor = l.id_autor
 group by a.nome;
 
 -- 5) Exibir os livros do mais caro ao mais barato em ordem.
-select from emprestimo order by valor_emprestimo desc;
+select * from emprestimo order by valor_emprestimo desc;
+
+select l.titulo, e.valor_emprestimo from livro l
+inner join emprestimo e on l.id_livro = e.id_livro order by e.valor_emprestimo desc;
 
 -- 6) Apagar um autor consequentemente seu livro deverá ser automaticamente apagado.
 delete from autor where id_autor = 3;
@@ -94,5 +104,3 @@ delete from autor where id_autor = 3;
 select l.titulo, sum (e.valor_emprestimo) from livro l
 inner join emprestimo e  on e.id_livro = l.id_livro
 group by l.titulo;
-
-
