@@ -6,8 +6,6 @@
 
 ## Bem-vindos, Grupo 4!
 
-Este repositório centraliza e versiona o banco de dados desenvolvido pelo **Grupo 4** como parte da atividade de **Banco de Dados — Empréstimo de Livros** do programa **Serretec Residência de Software**.
-
 O projeto consiste na modelagem e implementação de um banco de dados relacional para controle de empréstimos de livros, contemplando diagramas conceitual, lógico e físico, além das queries solicitadas.
 
 ---
@@ -82,32 +80,11 @@ EMPRESTIMO-DE-LIVROS/
 
 ---
 
-## Como Contribuir
+## URL para clonar o repositório
 
-1. **Clone o repositório:**
 ```bash
-git clone https://github.com/luluzinha05/Logica_de_Programacao.git
+git clone https://github.com/luluzinha05/Emprestimo-de-Livros.git
 ```
-
-2. **Crie uma branch com seu nome:**
-```bash
-git checkout -b nome-do-integrante
-```
-
-3. **Adicione seus arquivos na pasta correspondente.**
-
-4. **Faça o commit com uma mensagem descritiva:**
-```bash
-git add .
-git commit -m "feat: criação das tabelas e inserts iniciais"
-```
-
-5. **Envie para o repositório remoto:**
-```bash
-git push origin nome-do-integrante
-```
-
----
 
 ## Ferramentas
 
