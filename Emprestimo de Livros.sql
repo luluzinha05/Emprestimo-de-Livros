@@ -1,3 +1,8 @@
+drop table autor 
+drop table emprestimo
+drop table livro 
+drop table usuario 
+
 --Criação tabelas modelo físico:
 create table autor(
 id_autor serial primary key,
@@ -26,7 +31,7 @@ valor_emprestimo numeric,
 id_usuario int,
 foreign key (id_usuario) references usuario (id_usuario),
 id_livro int,
-foreign key (id_livro) references livro (id_livro) on delete cascade
+foreign key (id_livro) references livro (id_livro) on delete no action
 );
 
 -- Popular tabelas:
@@ -77,9 +82,7 @@ select l.titulo from livro l
 left join emprestimo e on l.id_livro = e.id_livro where e.id_livro is null
 
 -- 3) Contar quantos livros foram emprestados.
-select a.nome, count (l.id_livro) from livro l
-left join autor a on a.id_autor = l.id_autor 
-group by a.nome;
+select count (*) as qtd_livros_emprestados from emprestimo;
 
 -- 4) A quantidade de livros que cada autor tem.
 select a.nome, count (l.id_livro) from livro l
