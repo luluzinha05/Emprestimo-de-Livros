@@ -1,8 +1,3 @@
-drop table autor 
-drop table emprestimo
-drop table livro 
-drop table usuario 
-
 --Criação tabelas modelo físico:
 create table autor(
 id_autor serial primary key,
