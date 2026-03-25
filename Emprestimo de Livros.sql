@@ -67,8 +67,6 @@ valor_emprestimo, id_usuario,id_livro) values
 (7, '2026-03-07', '2026-03-16', 4.50, 2, 6);
 
 -- 1) Retornar os livros emprestados.
-select * from emprestimo e 
-
 select e.id_emprestimo, l.titulo, e.data_emprestimo from livro l
 inner join emprestimo e on l.id_livro = e.id_livro
 
@@ -85,8 +83,6 @@ left join autor a on a.id_autor = l.id_autor
 group by a.nome;
 
 -- 5) Exibir os livros do mais caro ao mais barato em ordem.
-select * from emprestimo order by valor_emprestimo desc;
-
 select l.titulo, e.valor_emprestimo from livro l
 inner join emprestimo e on l.id_livro = e.id_livro order by e.valor_emprestimo desc;
 
